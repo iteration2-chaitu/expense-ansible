@@ -6,3 +6,8 @@
       ansible.builtin.dnf:
         name:  nginx
         state:  latest
+
+    - name: Start or restart Nginx
+      ansible.builtin.systemd:
+        name: nginx
+        state: restarted
