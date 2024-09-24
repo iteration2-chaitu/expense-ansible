@@ -1,0 +1,8 @@
+- name:  Frontend setup
+  hosts:  Frontend
+  become:  yes
+  tasks:
+    - name: Install Nginx
+      ansible.builtin.dnf:
+        name:  nginx
+        state:  latest
