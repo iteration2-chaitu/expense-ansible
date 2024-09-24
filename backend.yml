@@ -38,9 +38,6 @@
         path:  /app
         state: latest
 
-
-
-
     - name:   copy backend service file
       ansible.builtin.copy:
         src:  backend.service
@@ -56,7 +53,7 @@
     - name:  Load the schema
       community.mysql.mysql_db:
         state:  import
-        name: mysql
+        name: all
         target:  /app/schema/backend.sql
         login_user:  root
         login_password:  ExpenseApp@1
