@@ -11,7 +11,7 @@
 - name:  import the app pre requisites
   ansible.builtin.import_role:
     name:  common
-    state:  app-pre-req
+    tasks_from:  app-pre-req
 
 - name: Start or restart Nginx
   ansible.builtin.systemd:
