@@ -38,6 +38,12 @@
         name:  /app
         state: latest
 
+    - name: Install Node.js and npm
+      ansible.builtin.dnf:
+        name: nodejs
+        state: present
+
+
     - name:   copy backend service file
       ansible.builtin.copy:
         src:  backend.service
