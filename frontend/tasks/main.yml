@@ -8,10 +8,10 @@
     src:  expense.conf
     dest:  /etc/nginx/default.d/expense.conf
 
-- name: import the app pre requisites
+- name:  import the app pre requisites
   ansible.builtin.import_role:
-    name:   common
-    state:   app-pre-req
+    name:  common
+    state:  app-pre-req
 
 - name: Start or restart Nginx
   ansible.builtin.systemd:
