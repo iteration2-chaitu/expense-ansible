@@ -6,3 +6,29 @@
       ansible.builtin.dnf:
         name:  nginx
         state:  latest
+
+    - name:  copy expense nginx configuration
+      ansible.builtin.copy:
+        src:  expense.conf
+        dest:  /etc/nginx/default.d/expense.conf
+
+    - name: cleanup the old content
+      ansible.builtin.file:
+        path:  /usr/share/nginx/html
+        state:  absent
+
+    - name:  create the app directory
+      ansible.builtin.file:
+        path:  /usr/share/nginx/html
+        state:  directory
+
+    - name:  Download and extract the app content
+      ansible.builtin.unarchive:
+        src:  https://expense-artifacts.s3.amazonaws.com/expense-frontend-v2.zip
+        dest:  usr/share/nginx/html
+        remote_src:  yes
+
+    - name: Start or restart Nginx
+      ansible.builtin.systemd:
+        name: nginx
+        state: restarted
