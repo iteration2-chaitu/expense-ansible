@@ -1,5 +1,5 @@
 - name:  Backend setup
-  hosts:  all
+  hosts:  Backend
   become:  yes
   tasks:
     - name:  Disable default nodejs version module
