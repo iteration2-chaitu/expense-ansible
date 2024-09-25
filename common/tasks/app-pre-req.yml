@@ -1,4 +1,4 @@
-- name: cleanup the old content
+- name:  cleanup the old content
   ansible.builtin.file:
     path:  "{{ app_loc }}"
     state:  absent
@@ -10,6 +10,6 @@
 
 - name:  Download and extract the app content
   ansible.builtin.unarchive:
-    src:  https://expense-artifacts.s3.amazonaws.com/expense-frontend-v2.zip
+    src:  https://expense-artifacts.s3.amazonaws.com/expense-{{ component }}-v2.zip
     dest:  "{{ app_loc }}"
     remote_src:  yes
