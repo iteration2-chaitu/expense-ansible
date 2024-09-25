@@ -1,3 +1,6 @@
+- name:  Set prompt with component
+  ansible.builtin.shell:  sudo set-prompt {{ component }}
+
 - name:  Disable default nodejs version module
   ansible.builtin.shell:  dnf module disable nodejs -y
 
