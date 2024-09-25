@@ -42,7 +42,7 @@
     target:  /app/schema/backend.sql
     login_user:  root
     login_password:  ExpenseApp@1
-    login_host:  mysql-dev-yml.chaitus.shop
+    login_host:  172.31.22.121
 
 - name:  start backend service
   ansible.builtin.systemd_service:
