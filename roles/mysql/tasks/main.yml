@@ -8,6 +8,7 @@
     name: mysqld
     state:  started
     enabled:  yes
+
  #to rectify error..add below 2 steps
 #- name: Install python mysql client
  # ansible.builtin.pip:
@@ -25,6 +26,11 @@
    # filter:  version
    # register:  mysql_connection_output
 
+    #  - name: Display MySQL connection output
+     #  debug:
+     #     var: mysql_connection_output
+
 
 - name: Setup Mysql password
   ansible.builtin.shell:  mysql_secure_installation --set-root-pass ExpenseApp@1
+ # when:   mysql_connection_output.failed is true
