@@ -9,26 +9,22 @@
     state:  started
     enabled:  yes
  #to rectify error..add below 2 steps
-- name: Install python mysql client
-  ansible.builtin.pip:
-    name:
-      - PyMySQL
-      - cryptography
-    executable:  pip3.9
+#- name: Install python mysql client
+ # ansible.builtin.pip:
+  #  name:
+   #   - PyMySQL
+   #   - cryptography
+   # executable:  pip3.9
 
-- name:  check the DB connection with our password
-  community.mysql.mysql_info:
-    login_user:  root
-    login_password:  ExpenseApp@1
-    login_host:  mysql-dev-yml.chaitus.shop
-    #172.31.22.121
-    filter:  version
-    register:  mysql_connection_output
+#- name:  check the DB connection with our password
+ # community.mysql.mysql_info:
+   # login_user:  root
+  #  login_password:  ExpenseApp@1
+   # login_host:  mysql-dev-yml.chaitus.shop
+   # #172.31.22.121
+   # filter:  version
+   # register:  mysql_connection_output
 
-- name: Display MySQL connection info
-  debug:
-    var: mysql_connection_output
 
 - name: Setup Mysql password
   ansible.builtin.shell:  mysql_secure_installation --set-root-pass ExpenseApp@1
-  when:   mysql_connection_output.failed is true
