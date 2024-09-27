@@ -43,7 +43,8 @@
     target:  /app/schema/backend.sql
     login_user:  root
     login_password:  ExpenseApp@1
-    login_host:  mysql-dev-yml.chaitus.shop
+    login_host:  72.31.95.21
+    mysql-dev-yml.chaitus.shop
     #172.31.95.21
 
 - name:  start backend service
