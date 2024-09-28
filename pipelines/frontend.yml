@@ -14,21 +14,19 @@ pipelines:
     stages:
       -  dev:
           fetch_materials: true
-          keep_artifacts: false
-          clean_workspace: false
           approval:
             type:  manual
           jobs:
             ansible-playbook:
-              timeout: 0
-              environment_variables:
-                ANSIBLE_INVENTORY:  /home/ec2-user/expense-ansible/pipelines/Hosts
-              tasks:
+#              timeout: 0
+#              environment_variables:
+#                ANSIBLE_INVENTORY:  /home/ec2-user/expense-ansible/pipelines/Hosts
+                tasks:
                 - exec:
-                   command:  bash
                    arguments:
-                       - /home/ec2-user/expense-ansible/ansible.sh
+                       - ansible.sh
                        - frontend
+                   command:  bash
                    run_if: passed
 
 #                            - |
