@@ -21,10 +21,16 @@ pipelines:
           jobs:
             ansible-playbook:
               timeout: 0
+              environment_variables:
+                ANSIBLE_INVENTORY:  /home/ec2-user/expense-ansible/pipelines/Hosts
               tasks:
                 - exec:
                     arguments:
-                       -  ansible.sh
-                       -  frontend
+                        - arguments:
+                            - -c
+                            - |
+                              ansible-playbook -i /path/to/your/inventory/file -e ansible_user=ec2-user -e ansible_password=DevOps321 expense.yml -e role_name=mysql -e env=dev|
+#                       -  ansible.sh
+#                       -  frontend
                     command:  bash  # bash ansible.sh frontend
                     run_if: passed
