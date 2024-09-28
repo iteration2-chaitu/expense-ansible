@@ -1,5 +1,5 @@
 - name:  Frontend setup
-  hosts:  frontend-dev-yml.chaitus.shop
+  hosts:  frontend
   become:  yes
   roles:
     - frontend
