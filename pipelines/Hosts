@@ -1,0 +1,6 @@
+[frontend]
+172.31.29.173 ansible_python_interpreter=/usr/bin/python3
+[backend]
+172.31.30.203 ansible_python_interpreter=/usr/bin/python3
+[mysql]
+172.31.95.21 ansible_python_interpreter=/usr/bin/python3
