@@ -1,4 +1,4 @@
-- name:  Frontend setup
+- name:  Mysql setup
   hosts:  MySQL
   become:  yes
   roles:
