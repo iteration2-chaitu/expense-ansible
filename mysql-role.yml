@@ -1,5 +1,5 @@
 - name:  Mysql setup
-  hosts:  mysql
+  hosts:  mysql-dev-yml.chaitus.shop
   become:  yes
   roles:
     - mysql
