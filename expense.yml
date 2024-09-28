@@ -1,5 +1,7 @@
 - name:  Expense project setup
-  hosts:  "{{ role_name }}"
+  hosts:  frontend-dev-yml.chaitus.shop
+    #"{{ role_name }}"
+           # frontend-dev-yml.chaitus.shop
   become:  yes
   roles:
     - "{{ role_name }}"
