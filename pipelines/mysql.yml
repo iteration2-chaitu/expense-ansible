@@ -1,0 +1,105 @@
+format_version: 10
+pipelines:
+  mysql:
+    group: defaultGroup
+    label_template: ${COUNT}
+    lock_behavior: none
+    display_order: -1
+    materials:
+      git-21f7d58:
+        git: https://github.com/iteration2-chaitu/expense-ansible.git
+        shallow_clone: false
+        auto_update: true
+        branch: main
+    stages:
+      -  dev:
+           fetch_materials: true
+           environment_variables:
+             env: dev
+           approval:
+             type:  manual
+           jobs:
+             ansible-playbook:
+               #              timeout: 0
+               #                ANSIBLE_INVENTORY:  /home/ec2-user/expense-ansible/pipelines/Hosts
+               tasks:
+                 - exec:
+                     arguments:
+                       - ansible.sh
+                       - mysql
+                     command:  bash
+                     run_if: passed
+      - QA:
+          fetch_materials: true
+          environment_variables:
+            env:  QA
+          approval:
+            type: manual
+          jobs:
+            ansible-playbook:
+              #              timeout: 0
+              #                ANSIBLE_INVENTORY:  /home/ec2-user/expense-ansible/pipelines/Hosts
+              tasks:
+                - exec:
+                    arguments:
+                      - ansible.sh
+                      - mysql
+                    command: bash
+                    run_if: passed
+      - Stage:
+          fetch_materials: true
+          environment_variables:
+            env:  STAGE
+          approval:
+            type: manual
+          jobs:
+            ansible-playbook:
+              #              timeout: 0
+              #              environment_variables:
+              #                ANSIBLE_INVENTORY:  /home/ec2-user/expense-ansible/pipelines/Hosts
+              tasks:
+                - exec:
+                    arguments:
+                      - ansible.sh
+                      - mysql
+                    command: bash
+                    run_if: passed
+      - prod:
+          fetch_materials: true
+          environment_variables:
+            env:  PROD
+          approval:
+            type: manual
+          jobs:
+            ansible-playbook:
+              #              timeout: 0
+              #              environment_variables:
+              #                ANSIBLE_INVENTORY:  /home/ec2-user/expense-ansible/pipelines/Hosts
+              tasks:
+                - exec:
+                    arguments:
+                      - ansible.sh
+                      - mysql
+                    command: bash
+                    run_if: passed
+                      #           - QA:
+                      #          fetch_materials: true
+                      #          approval:
+                      #            type: manual
+                      #          jobs:
+                      #            ansible-playbook:
+                      #              #              timeout: 0
+                      #              #              environment_variables:
+                      #              #                ANSIBLE_INVENTORY:  /home/ec2-user/expense-ansible/pipelines/Hosts
+                      #              tasks:
+                      #                - exec:
+                      #                    arguments:
+                      #                      - ansible.sh
+                      #                      - frontend
+                      #                    command: bash
+                      #                    run_if: passed                        - |
+                      #                              ansible-playbook -i /path/to/your/inventory/file -e ansible_user=ec2-user -e ansible_password=DevOps321 expense.yml -e role_name=mysql -e env=dev|
+                      #                       -  ansible.sh
+                      #                       -  frontend
+                    # bash ansible.sh frontend
+
