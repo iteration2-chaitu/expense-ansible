@@ -14,12 +14,13 @@ pipelines:
     stages:
       -  dev:
           fetch_materials: true
+          environment_variables:
+            env: dev
           approval:
             type:  manual
           jobs:
             ansible-playbook:
 #              timeout: 0
-#              environment_variables:
 #                ANSIBLE_INVENTORY:  /home/ec2-user/expense-ansible/pipelines/Hosts
                 tasks:
                 - exec:
@@ -28,9 +29,27 @@ pipelines:
                        - frontend
                    command:  bash
                    run_if: passed
-
+      - QA:
+          fetch_materials: true
+          environment_variables:
+            env:  QA
+          approval:
+            type: manual
+          jobs:
+            ansible-playbook:
+              #              timeout: 0
+              #                ANSIBLE_INVENTORY:  /home/ec2-user/expense-ansible/pipelines/Hosts
+              tasks:
+                - exec:
+                    arguments:
+                      - ansible.sh
+                      - frontend
+                    command: bash
+                    run_if: passed
       - Stage:
           fetch_materials: true
+          environment_variables:
+            env:  STAGE
           approval:
             type: manual
           jobs:
@@ -47,6 +66,8 @@ pipelines:
                     run_if: passed
       - prod:
           fetch_materials: true
+          environment_variables:
+            env:  PROD
           approval:
             type: manual
           jobs:
