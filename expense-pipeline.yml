@@ -1,5 +1,6 @@
 - name:  Expense project setup
-  hosts:   "{{ role_name }}-{{ env }}-yml.chaitus.shop"
+  hosts:  localhost
+#    "{{ role_name }}-{{ env }}-yml.chaitus.shop"
   vars:
       ansible_python_interpreter: /usr/bin/python3
   become: yes
