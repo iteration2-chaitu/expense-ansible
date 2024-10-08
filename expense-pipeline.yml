@@ -1,9 +1,10 @@
 - name:  Expense project setup
-  hosts: localhost
+  hosts: "{{ role_name }}-{{ env }}-yml.chaitus.shop"
 #  "{{ role_name }}-{{ env }}.chaitus.shop"
 #  "{{ role_name }}-{{ env }}-yml.chaitus.shop" ----give this for ANSIBLE ..
 #    "{{ role_name }}-{{ env }}-yml.chaitus.shop"
   # "{ role_name }}-{{ env }}.chaitus.shop" ..give this for terraform
+#  localhost ..for terraform pull
   vars:
       ansible_python_interpreter: /usr/bin/python3
   become: yes
