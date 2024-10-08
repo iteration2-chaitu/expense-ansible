@@ -43,10 +43,10 @@
     target:  /app/schema/backend.sql
     login_user:  root
     login_password:  ExpenseApp@1
-    login_host:  mysql-dev-yml.chaitus.shop
+    login_host:  mysql-dev.chaitus.shop
     #mysql-dev-yml.chaitus.shop
     #172.31.95.21
-
+#    mysql-dev.chaitus.shop ..terraform
 - name:  start backend service
   ansible.builtin.systemd_service:
     name:  backend
