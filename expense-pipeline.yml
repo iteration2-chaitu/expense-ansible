@@ -1,5 +1,5 @@
 - name:  Expense project setup
-  hosts: "{{ role_name }}-{{ env }}-yml.chaitus.shop"
+  hosts:  localhost
 #  "{{ role_name }}-{{ env }}.chaitus.shop"
 #  "{{ role_name }}-{{ env }}-yml.chaitus.shop" ----give this for ANSIBLE ..
 #    "{{ role_name }}-{{ env }}-yml.chaitus.shop"
