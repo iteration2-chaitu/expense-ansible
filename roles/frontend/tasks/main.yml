@@ -18,3 +18,4 @@
     state: restarted
     name: nginx
     enabled:  yes
+    daemon_reload:  yes
