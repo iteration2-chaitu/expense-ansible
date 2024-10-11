@@ -1,3 +1,7 @@
 - name:  Set prompt with component
   ansible.builtin.shell:  set-prompt {{ component }}
   become: yes
+
+- name:  InstallNode Exporter
+  ansible.builtin.shell: set-prompt {{ component }}
+  become: yes
