@@ -2,6 +2,7 @@
   ansible.builtin.shell:  set-prompt {{ component }}
   become: yes
 
-- name:  InstallNode Exporter
-  ansible.builtin.shell: set-prompt {{ component }}
-  become: yes
+- name:  Install node exporter
+  ansible.builtin.import_role:
+    name: prometheus
+    tasks_from: node_exporter.yml
