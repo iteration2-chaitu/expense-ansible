@@ -5,7 +5,7 @@ User={{app_user}}
 WorkingDirectory=/app
 Environment=DB_HOST="mysql-{{ env }}.chaitus.shop"
 Environment=NEW_RELIC_APP_NAME=backend
-Environment=NEW_RELIC_LICENSE_KEY={{NEWRELIC_NGINX_TOKEN}
+Environment=NEW_RELIC_LICENSE_KEY={{NEWRELIC_KEY}}
 ExecStart=/bin/node -r newrelic /app/index.js
 SyslogIdentifier=backend
 
