@@ -1,7 +1,7 @@
 [Unit]
 
 [Service]
-User={{app_user}}
+User=expense
 WorkingDirectory=/app
 Environment=DB_HOST="mysql-{{ env }}.chaitus.shop"
 Environment=NEW_RELIC_APP_NAME=backend
