@@ -19,3 +19,8 @@
     name: nginx
     enabled:  yes
     daemon_reload:  yes
+
+- name:  import NewRElic Nginx setup
+  ansible.builtin.import_role:
+    name:  newrelic
+    tasks_from:  nginx
