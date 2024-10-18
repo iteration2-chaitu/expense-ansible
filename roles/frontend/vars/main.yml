@@ -1,4 +1,4 @@
 app_loc:  /usr/share/nginx/html
-app_user:  expense
+app_user:  bin
 component:  frontend
 env:  dev
