@@ -8,10 +8,11 @@
     name: expense
     state: present  # Ensure the group exists
 
+- name: Create a user expense
   ansible.builtin.user:
-      name: expense              # Username
-      groups: expense           # Add the user to the 'wheel' group (sudo group)
-      state: present          # Ensure the user is present (created)
+    name: expense              # Username
+    groups: expense           # Add the user to the 'wheel' group (sudo group)
+    state: present          # Ensure the user is present (created)
 
 - name:  create the app directory
   ansible.builtin.file:
