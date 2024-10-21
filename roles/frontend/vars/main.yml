@@ -1,4 +1,5 @@
 app_loc:  /usr/share/nginx/html
 app_user:  expense
+#app_user: nginx ..if we give this no need to create expense user
 component:  frontend
 env:  dev
