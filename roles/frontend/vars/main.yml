@@ -3,3 +3,4 @@ app_user:  expense
 #app_user: nginx ..if we give this no need to create expense user
 component:  frontend
 env:  dev
+log_file: /var/log/nginx/access.log
