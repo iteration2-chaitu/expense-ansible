@@ -1,2 +1,3 @@
 component:  mysql
 env:  dev
+logstash_config_needed: false
