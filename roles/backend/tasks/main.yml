@@ -46,10 +46,13 @@
     state:  import
     name: all
     target:  /app/schema/backend.sql
-    login_user:  root
-    login_password:  "{{mysql_root_password}}"
+#    login_user:  root
+    login_user:  "{{rds_username}}"
+    login_password:  "{{ rds_password }}"
+#    login_password:  "{{mysql_root_password}}" change to RDS
 #   ExpenseApp@1
-    login_host:  mysql-dev.chaitus.shop
+#    login_host:  mysql-dev.chaitus.shop
+    login_host:  "{{ rds_endpoint }}"
 #    mysql-dev.chaitus.shop
     #mysql-dev-yml.chaitus.shop ..ansible
     #172.31.95.21
